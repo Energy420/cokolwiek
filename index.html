@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strona świąteczna</title>
+    <style>
+        /* Tutaj możesz dodać własne style CSS */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            text-align: center;
+            color: #ff0000;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            margin: 10px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #008000;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background-color: #00ff00;
+        }
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #cccccc;
+            background-color: #ffffff;
+        }
+        ul {
+            list-style-type: none;
+        }
+        li {
+            margin: 10px;
+        }
+        img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+        }
+        .recipe {
+            display: flex;
+            flex-direction: column;
+        }
+        .recipe img {
+            width: 300px;
+            height: 300px;
+            margin: 10px auto;
+        }
+        /* Tutaj możesz dodać własne animacje CSS */
+        @keyframes snow {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(100%);
+            }
+        }
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            left: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #ffffff;
+            animation: snow 5s linear infinite;
+        }
+        .contact {
+            display: flex;
+            justify-content: space-between;
+        }
+        .contact a {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background-size: cover;
+        }
+        .contact a.facebook {
+            background-image: url("facebook.png");
+        }
+        .contact a.twitter {
+            background-image: url("twitter.png");
+        }
+        .contact a.instagram {
+            background-image: url("instagram.png");
+        }
+        .contact a.youtube {
+            background-image: url("youtube.png");
+        }
+        .polecenie {
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        // Tutaj możesz dodać własne skrypty JavaScript
+        window.addEventListener("load", function() {
+            // Dodanie śnieżynki do strony
+            function addSnowflake() {
+                // Utworzenie elementu śnieżynki
+                var snowflake = document.createElement("div");
+                snowflake.classList.add("snowflake");
+                // Losowanie położenia i prędkości śnieżynki
+                var x = Math.random() * window.innerWidth;
+                var t = Math.random() * 10 + 5;
+                // Ustawienie stylów śnieżynki
+                snowflake.style.left = x + "px";
+                snowflake.style.animationDuration = t + "s";
+                // Dodanie śnieżynki do body
+                document.body.appendChild(snowflake);
+                // Usunięcie śnieżynki po zakończeniu animacji
+                setTimeout(function() {
+                    document.body.removeChild(snowflake);
+                }, t * 1000);
+            }
+            // Dodanie śnieżynki co sekundę
+            setInterval(addSnowflake, 1000);
+        });
+    </script>
+</head>
+<body>
+    <h1>Wesołych Świąt!</h1>
+    <nav>
+        <a href="#carols">Kolędy</a>
+        <a href="#gallery">Galeria</a>
+        <a href="#recipes">Przepisy</a>
+        <a href="#contact">Kontakt</a>
+    </nav>
+    <section id="carols">
+        <h2>Kolędy</h2>
+        <ul>
+            <li>
+                <h3>Cicha noc</h3>
+                <p>Cicha noc, święta noc<br>
+                Pokój niesie ludziom wszem<br>
+                A u żłóbka Matka Święta<br>
+                Czuwa sama uśmiechnięta<br>
+                Nad Dzieciątka snem<br>
+                Nad Dzieciątka snem</p>
+                <audio controls>
+                    <source src="Cicha noc, święta noc.mp3" type="audio/mpeg">
+                    Nie można odtworzyć pliku audio.
+                </audio>
+            </li>
+            <li>
+                <h3>Bóg się rodzi</h3>
+                <p>Bóg się rodzi, moc truchleje<br>
+                Pan niebiosów obnażony<br>
+                Ogień krzepnie, blask ciemnieje<br>
+                Ma granice Nieskończony<br>
+                Wzgardzony, okryty chwałą<br>
+                Śmiertelny Król nad wiekami<br>
+                A Słowo Ciałem się stało<br>
+                I mieszkało między nami</p>
+                <audio controls>
+                    <source src="Bóg się rodzi - Piękna tradycyjna kolęda polska - z tekstem do śpiewania.mp3" type="audio/mpeg">
+                    Nie można odtworzyć pliku audio.
+                </audio>
+            </li>
+            <li>
+                <h3>Lulajże Jezuniu</h3>
+                <p>Lulajże Jezuniu, moja perelko<br>
+                Lulaj ulubione me pieścidełko<br>
+                Lulajże Jezuniu, lulajże lulaj<br>
+                A Ty Go matulu w płaczu utulaj</p>
+                <audio controls>
+                    <source src="Lulajże Jezuniu - Kolędy polskie z tekstem - Babadu TV.mp3" type="audio/mpeg">
+                    Nie można odtworzyć pliku audio.
+                </audio>
+            </li>
+        </ul>
+    </section>
+    <section id="gallery">
+        <h2>Galeria</h2>
+        <div class="gallery">
+            <div>
+                <img src="choinka.jpg" alt="Choinka">
+                <p>Choinka ozdobiona kolorowymi bombkami i światełkami.</p>
+            </div>
+            <div>
+                <img src="ozdoba.jpg" alt="Ozdoby">
+                <p>Ozdoby świąteczne wykonane z papieru, sznurka i gałązek.</p>
+            </div>
+            <div>
+                <img src="prezenty.jpg" alt="Prezenty">
+                <p>Prezenty zapakowane w kolorowy papier i wstążki.</p>
+            </div>
+        </div>
+    </section>
+    <section id="recipes">
+        <h2>Przepisy</h2>
+        <ul>
+            <li>
+                <div class="recipe">
+                    <h3>Pierniczki</h3>
+                    <img src="pierniczki.jpg" alt="Pierniczki">
+                    <p>Składniki:</p>
+                    <ul>
+                        <li>500 g mąki pszennej</li>
+                        <li>250 g miodu</li>
+                        <li>150 g masła</li>
+                        <li>100 g cukru</li>
+                        <li>2 jajka</li>
+                        <li>2 łyżeczki sody oczyszczonej</li>
+                        <li>2 łyżeczki przyprawy do piernika</li>
+                        <li>sól</li>
+                    </ul>
+                    <p>Kroki:</p>
+                    <ol>
+                        <li>W garnku podgrzewamy miód, masło i cukier, mieszając, aż się rozpuszczą. Odstawiamy do ostygnięcia.</li>
+                        <li>W dużej misce mieszamy mąkę, sodę, przyprawę i szczyptę soli.</li>
+                        <li>Dodajemy jajka i ostudzoną masę miodową. Zagniatamy ciasto, aż będzie gładkie i elastyczne.</li>
+                        <li>Przykrywamy ciasto folią i wkładamy do lodówki na co najmniej 2 godziny.</li>
+                        <li>Rozgrzewamy piekarnik do 180°C. Wykładamy blachę papierem do pieczenia.</li>
+                        <li>Rozwałkowujemy ciasto na grubość ok. 5 mm. Wykrawamy z niego dowolne kształty za pomocą foremek.</li>
+                        <li>Układamy pierniczki na blasze, zachowując odstępy. Pieczemy przez ok. 10 minut, aż będą lekko zrumienione.</li>
+                        <li>Ostudzamy pierniczki na kratce. Możemy je ozdobić lukrem, cukrowymi posypkami lub polewą czekoladową.</li>
+                    </ol>
+                </div>
+            </li>
+            <li>
+                <div class="recipe">
+                    <h3>Kutia</h3>
+                    <img src="kutia.jpg" alt="Kutia">
+                    <p>Składniki:</p>
+                    <ul>
+                        <li>250 g pszenicy</li>
+                        <li>1 l mleka</li>
+                        <li>250 g maku</li>
+                        <li>150 g miodu</li>
+                        <li>100 g rodzynek</li>
+                        <li>100 g orzechów włoskich</li>
+                        <li>50 g migdałów</li>
+                        <li>50 g bakalii</li>
+                        <li>cukier wanilinowy</li>
+                        <li>sól</li>
+                    </ul>
+                    <p>Kroki:</p>
+                    <ol>
+                        <li>Pszenicę płuczemy i namaczamy w wodzie na całą noc. Następnego dnia gotujemy ją w tej samej wodzie, aż będzie miękka. Odsączamy i studzimy.</li>
+                        <li>Mak płuczemy i zalewamy wrzątkiem. Odstawiamy na 15 minut. Odcedzamy i mielimy w maszynce lub miksujemy w blenderze.</li>
+                        <li>Mleko zagotowujemy z cukrem wanilinowym i szczyptą soli. Dodajemy miód i mieszamy, aż się rozpuści.</li>
+                        <li>Rodzynki zalewamy wrzątkiem i odstawiamy na 10 minut. Odcedzamy i osuszamy.</li>
+                        <li>Orzechy i migdały siekamy na drobne kawałki. Bakalie kroimy w paski.</li>
+                        <li>W dużej misce mieszamy pszenicę, mak, rodzynki, orzechy, migdały i bakalie. Zalewamy ciepłym mlekiem i dokładnie mieszamy.</li>
+                        <li>Przelewamy kutię do półmisku i chłodzimy w lodówce. Podajemy na zimno.</li>
+                    </ol>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <section id="contact">
+        <h2>Kontakt</h2>
+        <p>Jeśli podoba Ci się nasza strona, skontaktuj się z nami lub podziel się nią w mediach społecznościowych. Chętnie poznamy Twoją opinię i sugestie.</p>
+        <p>Nasze dane kontaktowe:</p>
+        <ul>
+            <li>adrian podolski - adrian.podolski1014@gmail.com</li>
+        </ul>
+        <ul class="polecenie">
+            <li>polecam zajrzeć na strone poniżej</li>
+        </ul>
+        <a href="https://kuba-art.pl/">
+            <img src="Najladniejsze-strony-internetowe.jpg" alt="Opis zdjęcia">
+          </a>
+    </section>
+</body>
+</html>
